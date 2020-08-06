@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="698.0" prefWidth="1369.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="music.player.FXMLDocumentController">
+    <children>
+        <ImageView fitHeight="698.0" fitWidth="1388.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/bgmain.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageSmallMp3" fitHeight="57.0" fitWidth="55.0" layoutX="22.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true" />
+        <HBox layoutX="308.0" layoutY="633.0" prefHeight="32.0" prefWidth="188.0" spacing="7.0">
+            <children>
+                <ImageView fx:id="previousButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#previous" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/previousButton.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/play.png" />
+                    </image>
+                </ImageView>
+                <Pane prefHeight="32.0" prefWidth="32.0">
+                    <children>
+                        <ImageView fx:id="pauseButtonImage" fitHeight="28.0" fitWidth="37.0" onMouseClicked="#pause" pickOnBounds="true" preserveRatio="true" visible="false">
+                            <image>
+                                <Image url="@images/pauseButton.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="playButtonImage" fitHeight="33.0" fitWidth="33.0" layoutY="-1.0" onMouseClicked="#play" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/playButton_2.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+                <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/play-1.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="nextButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#next" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/nextButton.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+        <VBox layoutX="97.0" layoutY="624.0" prefHeight="50.0" prefWidth="191.0">
+            <children>
+                <Label fx:id="titleLabel" prefHeight="0.0" prefWidth="201.0" style="-fx-text-fill: #ffffff;" text="Title" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label fx:id="ArtistLabel" prefHeight="48.0" prefWidth="220.0" style="-fx-text-fill: #ffffff;" text="Artist" textFill="WHITE" />
+            </children>
+        </VBox>
+        <StackPane layoutX="544.0" layoutY="641.0" prefHeight="15.0" prefWidth="517.0">
+            <children>
+                <ProgressBar fx:id="progressbar" prefHeight="3.0" prefWidth="619.0" progress="0.0" style="-fx-text-box-border: #A59EAD; -fx-control-inner-background: #A59EAD; -fx-accent: #F9F8FF;" styleClass="progress" stylesheets="@style.css">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <cursor>
+                 
+                    </cursor>
+                </ProgressBar>
+                <Slider fx:id="slider" prefHeight="0.0" prefWidth="604.0" styleClass="Slider" stylesheets="@style.css">
+                    <effect>
+                        <Glow level="0.77" />
+                    </effect>
+                </Slider>
+            </children>
+        </StackPane>
+        <Label fx:id="startTime" layoutX="496.0" layoutY="641.0" style="-fx-text-fill: #ffffff;" stylesheets="@style.css" text="Label" textFill="WHITE" />
+        <Label fx:id="endTime" layoutX="1068.0" layoutY="642.0" prefHeight="18.0" prefWidth="62.0" style="-fx-text-fill: #ffffff;" text="Label" textFill="WHITE" />
+        <StackPane layoutX="1146.0" layoutY="643.0" prefHeight="16.0" prefWidth="104.0">
+            <children>
+                <ProgressBar fx:id="Volumeprogressbar" prefHeight="0.0" prefWidth="104.0" progress="0.0" style="-fx-text-box-border: #A59EAD; -fx-control-inner-background: #A59EAD; -fx-accent: #F9F8FF;" styleClass="progress" stylesheets="@style.css">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <effect>
+                        <Glow level="0.0" />
+                    </effect>
+                </ProgressBar>
+                <Slider fx:id="volumeSlider" prefHeight="7.0" prefWidth="104.0" stylesheets="@style.css">
+                    <effect>
+                        <Glow level="0.79" />
+                    </effect>
+                </Slider>
+            </children>
+        </StackPane>
+        <Pane fx:id="sideNavPanel" layoutX="6.0" layoutY="63.0" prefHeight="561.0" prefWidth="267.0">
+            <children>
+                <Label layoutX="36.0" layoutY="61.0" prefHeight="23.0" prefWidth="72.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Library" />
+                <VBox layoutX="6.0" layoutY="85.0" prefHeight="161.0" prefWidth="177.0">
+                    <children>
+                        <Pane fx:id="homePane" onMouseClicked="#homeClicked" prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label fx:id="homeText" layoutX="101.0" layoutY="11.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Home" />
+                                <StackPane layoutX="29.0" layoutY="9.0" prefHeight="22.0" prefWidth="22.0">
+                                    <children>
+                                        <ImageView fx:id="homeClickedImage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                            <image>
+                                                <Image url="@images/home_blue.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="homeUnclickedDark" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/home.png" />
+                                            </image>
+                                            <effect>
+                                                <ColorAdjust brightness="1.0" />
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="103.0" layoutY="14.0" prefHeight="12.0" prefWidth="72.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Playlists" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/playlists.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="101.0" layoutY="13.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Artists" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/artist_1.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="103.0" layoutY="14.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Albums" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/album.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="104.0" layoutY="13.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Songs" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="29.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/song.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+                <Label layoutX="32.0" layoutY="326.0" prefHeight="20.0" prefWidth="74.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Discover" />
+                <VBox layoutX="-1.0" layoutY="351.0" prefHeight="140.0" prefWidth="165.0">
+                    <children>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="101.0" layoutY="11.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Store" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/home.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="103.0" layoutY="14.0" prefHeight="19.0" prefWidth="62.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Radio" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/playlists.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="101.0" layoutY="13.0" prefHeight="19.0" prefWidth="63.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="For you" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/artist_1.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="47.0" prefWidth="240.0" style="-fx-background-radius: 20;">
+                            <children>
+                                <Label layoutX="103.0" layoutY="14.0" prefHeight="12.0" prefWidth="55.0" style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Browse" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/album.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust brightness="1.0" />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+        <Pane layoutX="1114.0" layoutY="635.0" prefHeight="32.0" prefWidth="32.0">
+            <children>
+                <ImageView fx:id="muteButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#doUnmute" pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@images/mute.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="volumeButton" fitHeight="32.0" fitWidth="32.0" onMouseClicked="#doMute" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/volume.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <ImageView fitHeight="470.0" fitWidth="737.0" layoutX="275.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/listbackground.png" />
+            </image>
+        </ImageView>
+        <JFXListView fx:id="listFiles" depth="1" editable="true" layoutX="275.0" layoutY="212.0" prefHeight="392.0" prefWidth="719.0" style="-fx-background-color: transparent;" stylesheets="@style.css" verticalGap="3.0">
+            <styleClass>
+                <String fx:value="jfx-list-cell" />
+                <String fx:value="jfx-list-view" />
+                <String fx:value="jfx-listCellText" />
+                <String fx:value="jfx-rippler" />
+            </styleClass>
+        </JFXListView>
+        <ImageView fx:id="mp3image" fitHeight="220.0" fitWidth="220.0" layoutX="1111.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/albumartplaceholder.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="55.0" fitWidth="364.0" layoutX="326.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/searchButton.png" />
+            </image>
+        </ImageView>
+        <JFXTextField fx:id="searchTextField" layoutX="397.0" layoutY="67.0" onAction="#search" prefHeight="42.0" prefWidth="203.0" promptText="Search Songs" style="-fx-background-color: #FFFFFF;" />
+        <Label fx:id="songLabel" layoutX="289.0" layoutY="153.0" prefHeight="51.0" prefWidth="124.0" style="-fx-font-weight: bold;" styleClass="song-label" stylesheets="@style.css" text="Songs" />
+        <StackPane layoutX="1276.0" layoutY="636.0" prefHeight="25.0" prefWidth="28.0">
+            <children>
+                <ImageView fx:id="redFavourite" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#makeUnfavourite" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/heartred.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="whiteFavourite" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#makeFavourite" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/heart.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </StackPane>
+        <Separator layoutX="288.0" layoutY="203.0" prefHeight="0.0" prefWidth="680.0" style="-fx-background-color: white; -fx-background-insets: 1 1 1 1;" />
+        <VBox layoutX="1109.0" layoutY="330.0" prefHeight="200.0" prefWidth="223.0" spacing="10.0">
+            <children>
+                <Label fx:id="title" prefHeight="26.0" prefWidth="232.0" style="-fx-font-family: Muli; -fx-font-style: normal; -fx-font-weight: bold; -fx-font-size: 17px; -fx-text-fill: #FFFFFF;" stylesheets="@style.css" text="Title" />
+                <Label fx:id="Album" prefHeight="25.0" prefWidth="232.0" style="-fx-font-family: muli; -fx-font-size: 16px; -fx-text-fill: #FFFFFF; -fx-font-weight: normal;" text="Album" />
+                <Label fx:id="Artist" prefHeight="25.0" prefWidth="232.0" style="-fx-font-family: muli; -fx-font-size: 16px; -fx-text-fill: #FFFFFF; -fx-font-weight: normal;" text="Artist" />
+         
+                <Label fx:id="year" prefHeight="25.0" prefWidth="232.0" style="-fx-font-family: muli; -fx-font-size: 16px; -fx-text-fill: #FFFFFF; -fx-font-weight: normal;" text="Year" />
+                <Label fx:id="Publisher" prefHeight="25.0" prefWidth="232.0" style="-fx-font-family: muli; -fx-font-size: 16px; -fx-text-fill: #FFFFFF; -fx-font-weight: normal;" text="Publisher" />
+                <Label fx:id="Composer" prefHeight="25.0" prefWidth="232.0" style="-fx-font-family: muli; -fx-font-size: 16px; -fx-text-fill: #FFFFFF; -fx-font-weight: normal;" text="Composer" />
+            </children>
+        </VBox>
+        <JFXListView fx:id="searchResultList" layoutX="387.0" layoutY="100.0" prefHeight="400.0" prefWidth="615.0" stylesheets="@newStyle.css" visible="false" />
+    </children>
+</AnchorPane>
